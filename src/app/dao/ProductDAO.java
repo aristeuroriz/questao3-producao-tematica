@@ -1,4 +1,4 @@
-package app.DAO;
+package app.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,26 +15,26 @@ public class ProductDAO implements ProductInterface {
 
 		try {
 
-			ResultSet resultSet = statement.executeQuery(
-					"SELECT PRODUTO.NOME PRODUTO, ITEM_PRODUTO.NOME ITEM, ITEM_PRODUTO.CODIGOITEM COD_ITEM FROM PRODUTO INNER JOIN ITEM_PRODUTO \r\n"
-							+ "ON PRODUTO.CODIGOPRODUTO = ITEM_PRODUTO.CODIGOPRODUTO;");
+			ResultSet resultSet = statement.executeQuery("SELECT \r\n" + "	PRODUTO.NOME PRODUTO, \r\n"
+					+ "	ITEM_PRODUTO.NOME ITEM,\r\n" + "	ITEM_PRODUTO.CODIGOITEM COD_ITEM,\r\n"
+					+ "	PRODUTO.CODIGOPRODUTO COD_PROD\r\n" + "FROM PRODUTO \r\n" + "INNER JOIN ITEM_PRODUTO\r\n"
+					+ "ON PRODUTO.CODIGOPRODUTO = ITEM_PRODUTO.CODIGOPRODUTO");
 			if (!resultSet.next()) {
 				System.out.println("Nenhum registro encontrado");
 			} else {
 
 				ResultSetMetaData rsmd = resultSet.getMetaData();
 				int columnsNumber = rsmd.getColumnCount();
-				
-				
+
 				while (resultSet.next()) {
 					for (int i = 1; i <= columnsNumber; i++) {
 						if (i > 1)
 							System.out.print(",  ");
-						System.out.print(rsmd.getColumnName(1));
-					
+						// System.out.print(rsmd.getColumnName(1));
+						String columnValue = resultSet.getString(i);
+						System.out.print(columnValue);
+
 					}
-					String columnValue = resultSet.getString(1);
-					System.out.print(columnValue);
 					System.out.println("");
 				}
 

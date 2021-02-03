@@ -1,8 +1,7 @@
 package app;
 
+import app.dao.ProductDAO;
 import java.sql.SQLException;
-
-import app.DataAccessObject.ProductDAO;
 
 public class ProducaoTematica {
 

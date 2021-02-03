@@ -1,4 +1,4 @@
-package app.DAO;
+package app.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ class DBConnection {
 		try {
 			conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres?currentSchema=public", "postgres", "postgres");
 		} catch (Exception e) {
-			System.out.println("Não foi possível conectar ao bd" + e.getMessage());
+			System.out.println("Nï¿½o foi possï¿½vel conectar ao bd" + e.getMessage());
 		}
 		return conexao;
 	}
