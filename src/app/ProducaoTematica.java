@@ -1,16 +1,29 @@
 package app;
 
-import app.dao.ProductDAO;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
+
+import app.dao.Produto;
+import app.dao.ProdutoDAO;
+import db.DBConnection;
 
 public class ProducaoTematica {
 
 	public static void main(String[] args) {
-		
-		ProductDAO productDAO = new ProductDAO();
-		
+
+		Connection connection = DBConnection.connectDB();
+
+		ProdutoDAO productDAO = new ProdutoDAO(connection);
+
 		try {
-			productDAO.getAllProducts();
+			List<Produto> produtos = productDAO.getAllProducts();
+
+			for (int i = 0; i < produtos.size(); i++) {
+				System.out.println(produtos.get(i).getNome() + ", " + produtos.get(i).getDescricao());
+
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
