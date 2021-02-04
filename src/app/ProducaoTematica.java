@@ -17,10 +17,13 @@ public class ProducaoTematica {
 		ProdutoDAO productDAO = new ProdutoDAO(connection);
 
 		try {
-			List<Produto> produtos = productDAO.getAllProducts();
+			List<Produto> produtos = productDAO.buscarTodosProdutos();
 
 			for (int i = 0; i < produtos.size(); i++) {
-				System.out.println(produtos.get(i).getNome() + ", " + produtos.get(i).getDescricao());
+				System.out.println(produtos.get(i).getCodigoproduto() + ", " + produtos.get(i).getNome() + ", "
+						+ produtos.get(i).getDescricao() + ", " + produtos.get(i).getAtributo1() + ", "
+						+ produtos.get(i).getAtributo2() + ", " + produtos.get(i).getAtributo3() + ", "
+						+ produtos.get(i).getAtributo4() + ", ");
 
 			}
 

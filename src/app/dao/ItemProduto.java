@@ -1,10 +1,9 @@
 package app.dao;
 
-import java.util.List;
-
-public class Produto {
+public class ItemProduto {
 
 	private Integer codigoproduto;
+	private Integer codigoitem;
 	private String nome;
 	private String descricao;
 	private String categoria;
@@ -12,11 +11,11 @@ public class Produto {
 	private String atributo2;
 	private String atributo3;
 	private String atributo4;
-	private List<ItemProduto> item;
 
-	Produto(Integer codigoproduto, String nome, String descricao, String categoria, String atributo1, String atributo2,
-			String atributo3, String atributo4, List<ItemProduto> item) {
+	ItemProduto(Integer codigoproduto, Integer codigoitem, String nome, String descricao, String categoria, String atributo1, String atributo2,
+			String atributo3, String atributo4) {
 		this.codigoproduto = codigoproduto;
+		this.codigoitem = codigoitem;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.categoria = categoria;
@@ -24,15 +23,25 @@ public class Produto {
 		this.atributo2 = atributo2;
 		this.atributo3 = atributo3;
 		this.atributo4 = atributo4;
-		this.item = item;
 	}
+	
 
 	public Integer getCodigoproduto() {
 		return codigoproduto;
 	}
 
+
 	public void setCodigoproduto(Integer codigoproduto) {
 		this.codigoproduto = codigoproduto;
+	}
+
+
+	public Integer getCodigoitem() {
+		return codigoitem;
+	}
+
+	public void setCodigoitem(Integer codigoitem) {
+		this.codigoitem = codigoitem;
 	}
 
 	public String getNome() {
@@ -89,14 +98,6 @@ public class Produto {
 
 	public void setAtributo4(String atributo4) {
 		this.atributo4 = atributo4;
-	}
-
-	public List<ItemProduto> getItem() {
-		return item;
-	}
-
-	public void setItem(List<ItemProduto> item) {
-		this.item = item;
 	}
 
 }
