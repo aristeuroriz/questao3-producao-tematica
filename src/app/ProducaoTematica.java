@@ -3,34 +3,32 @@ package app;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-
 import app.dao.Produto;
 import app.dao.ProdutoDAO;
 import db.DBConnection;
 
-public class ProducaoTematica {
+public class ProducaoTematica
+{
 
-	public static void main(String[] args) {
+   public static void main(String[] args)
+   {
+      try
+      {
+         Connection connection = DBConnection.connectDB();
 
-		Connection connection = DBConnection.connectDB();
+         ProdutoDAO productDAO = new ProdutoDAO(connection);
 
-		ProdutoDAO productDAO = new ProdutoDAO(connection);
+         List<Produto> produtos = productDAO.buscarTodosProdutos();
 
-		try {
-			List<Produto> produtos = productDAO.buscarTodosProdutos();
+         produtos.stream().forEach( produto -> System.out.println(produto.toString()));
 
-			for (int i = 0; i < produtos.size(); i++) {
-				System.out.println(produtos.get(i).getCodigoproduto() + ", " + produtos.get(i).getNome() + ", "
-						+ produtos.get(i).getDescricao() + ", " + produtos.get(i).getAtributo1() + ", "
-						+ produtos.get(i).getAtributo2() + ", " + produtos.get(i).getAtributo3() + ", "
-						+ produtos.get(i).getAtributo4() + ", ");
+         DBConnection.closeConnection(connection);
+      }
+      catch (SQLException e)
+      {
+         e.printStackTrace();
+      }
 
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	}
+   }
 
 }

@@ -1,8 +1,9 @@
+
 package app.dao;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ProdutoInterface {
-	 public ArrayList<Produto> buscarTodosProdutos() throws SQLException;
+	public List<Produto> buscarTodosProdutos() throws SQLException;
 }

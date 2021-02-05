@@ -14,8 +14,8 @@ public class Produto {
 	private String atributo4;
 	private List<ItemProduto> item;
 
-	Produto(Integer codigoproduto, String nome, String descricao, String categoria, String atributo1, String atributo2,
-			String atributo3, String atributo4, List<ItemProduto> item) {
+	public Produto(Integer codigoproduto, String nome, String descricao, String categoria, String atributo1,
+			String atributo2, String atributo3, String atributo4) {
 		this.codigoproduto = codigoproduto;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -24,7 +24,18 @@ public class Produto {
 		this.atributo2 = atributo2;
 		this.atributo3 = atributo3;
 		this.atributo4 = atributo4;
-		this.item = item;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder listaItens = new StringBuilder("{");
+
+		item.stream().forEach(itemProduto -> listaItens.append(itemProduto.toString()));
+
+		listaItens.append("}");
+
+		return "codigoProduto=[" + codigoproduto + "], " + "nome=[" + nome + "], " + "descricao=[" + descricao + "], "
+				+ "itens=" + listaItens;
 	}
 
 	public Integer getCodigoproduto() {
