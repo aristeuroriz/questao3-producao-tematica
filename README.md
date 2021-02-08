@@ -14,7 +14,7 @@
 
 ### Banco de dados
 #### Tabelas
-``
+
 ~~~sql
 DROP TABLE IF EXISTS PRODUTO, ITEM_PRODUTO;
 
@@ -43,9 +43,9 @@ CREATE TABLE ITEM_PRODUTO (
  FOREIGN KEY (CODIGOPRODUTO) REFERENCES PRODUTO (CODIGOPRODUTO) ON DELETE CASCADE
 );
 ~~~
-``
+
 #### Populando as tabelas
-``
+
 ~~~sql
 INSERT INTO PRODUTO (nome, descricao, categoria, atributo1, atributo2, atributo3, atributo4) 
 VALUES ('produto1', 'descrição 1', 'test', 'test', 'test', 'test', 'test');
@@ -62,7 +62,6 @@ VALUES (1, 'item 2', 'descrição item 2', 'test', 'test', 'test', 'test', 'test
 INSERT INTO ITEM_PRODUTO (CODIGOPRODUTO, nome, descricao, categoria, atributo1, atributo2, atributo3, atributo4) 
 VALUES (2, 'item 3', 'descrição item 3', 'test', 'test', 'test', 'test', 'test');
 ~~~
-``
 
 
 ## Summary
