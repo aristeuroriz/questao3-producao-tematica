@@ -1,7 +1,7 @@
 # Produção Temática
 
 [ Instruções de execução ](#Executando)
-[ Construção do banco de dados ](#Banco de dados)
+[ Construção do banco de dados ](#Banco-de-dados)
 [Resumo dos arquivos do projeto](#Summary)
 
 ## Executando
