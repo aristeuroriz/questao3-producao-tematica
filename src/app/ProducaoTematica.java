@@ -7,28 +7,28 @@ import app.dao.Produto;
 import app.dao.ProdutoDAO;
 import db.DBConnection;
 
-public class ProducaoTematica
-{
+/**
+ * @author c145149 Implementa classe principal Produção Temática
+ */
+public class ProducaoTematica {
 
-   public static void main(String[] args)
-   {
-      try
-      {
-         Connection connection = DBConnection.connectDB();
+	// Método principal
+	public static void main(String[] args) {
+		try {
+			// Cria conexão com banco de dados
+			Connection connection = DBConnection.connectDB();
+			// Instancia objeto ProdutoDAO com nova conexão
+			ProdutoDAO productDAO = new ProdutoDAO(connection);
+			// Instancia método buscarTodosProdutos via ProdutoDAO
+			List<Produto> produtos = productDAO.buscarTodosProdutos();
+			// Executa código e imprime em console os dados obtidos no banco de dados
+			produtos.stream().forEach(produto -> System.out.println(produto.toString()));
+			// Fecha conexão com banco de dados
+			DBConnection.closeConnection(connection);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-         ProdutoDAO productDAO = new ProdutoDAO(connection);
-
-         List<Produto> produtos = productDAO.buscarTodosProdutos();
-
-         produtos.stream().forEach( produto -> System.out.println(produto.toString()));
-
-         DBConnection.closeConnection(connection);
-      }
-      catch (SQLException e)
-      {
-         e.printStackTrace();
-      }
-
-   }
+	}
 
 }

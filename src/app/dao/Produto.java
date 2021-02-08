@@ -2,8 +2,12 @@ package app.dao;
 
 import java.util.List;
 
+/**
+ * @author c145149 Implementação classe Produto
+ */
 public class Produto {
 
+	// Declaração dos atributos da classe Produto
 	private Integer codigoproduto;
 	private String nome;
 	private String descricao;
@@ -14,6 +18,7 @@ public class Produto {
 	private String atributo4;
 	private List<ItemProduto> item;
 
+	// Método construtor da classe Produto
 	public Produto(Integer codigoproduto, String nome, String descricao, String categoria, String atributo1,
 			String atributo2, String atributo3, String atributo4) {
 		this.codigoproduto = codigoproduto;
@@ -26,7 +31,11 @@ public class Produto {
 		this.atributo4 = atributo4;
 	}
 
-	@Override
+	/**
+	 * Método para retornar resultado estruturado para print
+	 * 
+	 * @return String
+	 */
 	public String toString() {
 		StringBuilder listaItens = new StringBuilder("{");
 
@@ -34,72 +43,18 @@ public class Produto {
 
 		listaItens.append("}");
 
-		return "codigoProduto=[" + codigoproduto + "], " + "nome=[" + nome + "], " + "descricao=[" + descricao + "], "
-				+ "itens=" + listaItens;
+		return "{codigoProduto: " + codigoproduto + ", " + "nome: " + nome + ", " + "descricao: " + descricao + ", "
+				+ "categoria: " + categoria + ", " + "atributo1: " + atributo1 + ", " + "atributo2: " + atributo2 + ", "
+				+ "atributo3: " + atributo3 + ", " + "atributo4: " + atributo4 + ", itens: " + listaItens + "}";
 	}
 
+	// Métodos getters and setters dos atributos necessários para print
 	public Integer getCodigoproduto() {
 		return codigoproduto;
 	}
 
 	public void setCodigoproduto(Integer codigoproduto) {
 		this.codigoproduto = codigoproduto;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
-	}
-
-	public String getAtributo1() {
-		return atributo1;
-	}
-
-	public void setAtributo1(String atributo1) {
-		this.atributo1 = atributo1;
-	}
-
-	public String getAtributo2() {
-		return atributo2;
-	}
-
-	public void setAtributo2(String atributo2) {
-		this.atributo2 = atributo2;
-	}
-
-	public String getAtributo3() {
-		return atributo3;
-	}
-
-	public void setAtributo3(String atributo3) {
-		this.atributo3 = atributo3;
-	}
-
-	public String getAtributo4() {
-		return atributo4;
-	}
-
-	public void setAtributo4(String atributo4) {
-		this.atributo4 = atributo4;
 	}
 
 	public List<ItemProduto> getItem() {
